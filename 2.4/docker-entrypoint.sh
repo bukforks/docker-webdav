@@ -99,7 +99,7 @@ if [ -e /privkey.pem ] && [ -e /cert.pem ]; then
 fi
 
 # Create directories for Dav data and lock database.
-[ ! -e "/var/lib/dav/DavLock" ] && touch "/var/lib/dav/DavLock"
-chown -R www-data:www-data "/var/lib/dav/Davlock"
+[ ! -e "/var/lib/dav/DavLock" ] && mkdir -p /var/lib/dav/ && touch "/var/lib/dav/DavLock"
+chown -R www-data:www-data "/var/lib/dav/DavLock"
 
 exec "$@"
